@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лена Журун — визитка</title>
+<style>
+  :root {
+    --accent: #b3455a;
+    --accent-dark: #7c2f3d;
+    --bg: #faf7f5;
+    --paper: #ffffff;
+    --ink: #241f1d;
+    --ink-soft: #6b615c;
+    --line: #ece3df;
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+
+  p { margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { color: var(--accent-dark); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    background-image:
+      linear-gradient(180deg, rgba(20,14,14,0.15) 0%, rgba(16,10,10,0.55) 65%, rgba(12,8,8,0.85) 100%),
+      url("images/photo_2026-09-16_20-34-22.jpg");
+    background-size: cover;
+    background-position: center 22%;
+    padding: 48px 6vw 56px;
+    color: #fdf9f7;
+  }
+
+  .hero-inner { max-width: 760px; }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #f0d3d9;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    line-height: 1.05;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.45);
+  }
+
+  .hero .tagline {
+    margin-top: 18px;
+    font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+    color: #f3e6e6;
+    max-width: 560px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  }
+
+  /* ---------- Layout ---------- */
+
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 6vw;
+  }
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    margin-bottom: 12px;
+  }
+
+  h2.title {
+    font-size: clamp(1.6rem, 3.6vw, 2.1rem);
+    margin-bottom: 26px;
+    color: var(--ink);
+  }
+
+  /* ---------- About ---------- */
+
+  .about-body { display: flex; gap: 36px; align-items: flex-start; }
+  .about-text { flex: 1; min-width: 0; color: var(--ink); }
+
+  .about-aside {
+    flex-shrink: 0;
+    width: 160px;
+    text-align: center;
+  }
+
+  .about-aside img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 28px rgba(124,47,61,0.18);
+  }
+
+  .about-aside figcaption {
+    margin: 10px 0 0;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .principle {
+    margin-top: 26px;
+    padding: 20px 24px;
+    background: #f5e6e9;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--accent-dark);
+  }
+
+  /* ---------- Projects ---------- */
+
+  .lead {
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+
+  .headline-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+    margin: 24px 0 30px;
+    box-shadow: 0 6px 20px rgba(36,31,29,0.05);
+  }
+
+  .headline-card h3 {
+    color: var(--accent-dark);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .headline-card p { color: var(--ink-soft); }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 18px rgba(36,31,29,0.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card .card-img {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card .card-body { padding: 18px 20px 22px; }
+  .card.plain .card-body { padding-top: 22px; }
+
+  .card h3 { font-size: 1.02rem; color: var(--accent-dark); margin-bottom: 8px; }
+  .card p { font-size: 0.94rem; color: var(--ink-soft); margin: 0; }
+
+  .resources {
+    margin-top: 28px;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+
+  /* ---------- Facts ---------- */
+
+  .facts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+
+  .facts-list li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--ink);
+  }
+
+  .facts-list li::before {
+    content: "•";
+    position: absolute;
+    left: 2px;
+    top: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .howto {
+    margin-top: 28px;
+    padding: 22px 24px;
+    background: #f5e6e9;
+    border-radius: var(--radius);
+    color: var(--accent-dark);
+    font-size: 0.96rem;
+  }
+
+  .howto strong { color: var(--accent-dark); }
+
+  /* ---------- Finale ---------- */
+
+  .finale {
+    position: relative;
+    margin: 0 -6vw;
+    height: clamp(320px, 45vw, 560px);
+    background-image:
+      linear-gradient(180deg, rgba(20,14,14,0.35) 0%, rgba(14,9,9,0.68) 100%),
+      url("images/photo_2026-09-16_20-34-23.jpg");
+    background-size: cover;
+    background-position: center 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 8vw;
+    text-align: center;
+  }
+
+  .finale blockquote {
+    margin: 0;
+    color: #fdf3f4;
+    font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+    font-style: italic;
+    line-height: 1.45;
+    max-width: 620px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+
+  .finale cite {
+    display: block;
+    margin-top: 18px;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f0d3d9;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 6vw 48px;
+  }
+
+  .credits {
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: #a89e98;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+
+  @media (max-width: 640px) {
+    .hero { min-height: 70vh; padding: 36px 6vw 40px; }
+    section { padding: 48px 0; }
+    .about-body { flex-direction: column; }
+    .about-aside { align-self: center; }
+    .cards { grid-template-columns: 1fr; }
+    .finale { margin: 0 -6vw; padding: 48px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="kicker">Бухгалтер</span>
+    <h1>Лена Журун</h1>
+    <p class="tagline">Прямолинейная, упорная и всегда нацеленная на результат — в работе и в жизни.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="about">
+    <span class="eyebrow">Про меня</span>
+    <h2 class="title">Обо мне</h2>
+    <div class="about-body">
+      <div class="about-text">
+        <p>Здравствуйте. Я — <strong>Лена Журун</strong>. Бухгалтер, мама двоих детей и человек, который привык не бояться ответственности. В работе я внимательная, собранная и люблю, когда во всём есть порядок. Для меня цифры — это не просто расчёты, а часть большого дела, где важны точность, честность и доверие.</p>
+        <p>Я прямолинейная и упорная: говорю как есть, а если ставлю себе цель — иду к ней до конца. Не люблю ложь: считаю, что доверие строится только на честности и на том, что человек держит своё слово.</p>
+        <p>Главная моя гордость — мои дети. Именно они каждый день напоминают, ради чего стоит стараться, развиваться и двигаться дальше.</p>
+        <p>Но за профессиональной строгостью есть совсем другая Лена — женщина, которая много пережила, многому научилась и всегда продолжала идти вперёд. Жизнь не всегда складывалась просто, но именно трудности сделали меня сильнее, научили ценить близких и не принимать счастье как что-то само собой разумеющееся.</p>
+        <p>Вне работы я отдыхаю совсем иначе: копаюсь в саду, выращиваю цветы, вожусь с собакой — у меня джек-рассел-терьер по имени <strong>Ларс</strong>, и это отдельная большая любовь. А если выдаётся свободный вечер, люблю испечь что-нибудь вкусное — это мой способ немного притормозить и позаботиться о близких.</p>
+        <p>Я верю, что судьба складывается не только из того, что нам выпадает, но и из решений, которые мы принимаем. Поэтому я стараюсь с благодарностью смотреть на прошлое, с уверенностью — в настоящее и с надеждой — в будущее.</p>
+      </div>
+      <figure class="about-aside">
+        <img src="images/photo_2026-09-16_20-34-21.jpg" alt="Ларс, джек-рассел-терьер" loading="lazy">
+        <figcaption>Ларс</figcaption>
+      </figure>
+    </div>
+    <div class="principle">«Доверие строится на честности — и на том, что человек держит своё слово».</div>
+    <p style="margin-top:26px; color: var(--ink-soft);">Ради чего встаю по утрам — это забота о близких, время, проведённое вместе, и уют в доме. А ещё работа и цели, которые я себе ставлю: мне важно доводить начатое до результата и видеть, что усилия что-то значат. В людях больше всего ценю искренность, надёжность и ответственность. Если человек держит слово — с ним можно строить дело.</p>
+  </section>
+
+  <section class="projects">
+    <span class="eyebrow">Чем занимаюсь</span>
+    <h2 class="title">Портфель проектов</h2>
+    <p class="lead">Бухгалтер по профессии, но веду далеко не только отчётность. У меня несколько направлений, за которые отвечаю сама — от работы до дома, от сада до собаки.</p>
+
+    <div class="headline-card">
+      <h3>Главное дело: семья и дом</h3>
+      <p>Моё самое важное вложение времени и сил — семья. Двое детей, дом, в котором должно быть уютно и спокойно. Здесь я и организатор, и опора: слежу, чтобы у всех было то, что нужно.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card plain">
+        <div class="card-body">
+          <h3>Бухгалтерия</h3>
+          <p>Моя профессиональная база: точность, порядок и ответственность за цифры, которым доверяют. Здесь я привыкла не бояться сложных задач и доводить дело до конца.</p>
+        </div>
+      </div>
+      <div class="card plain">
+        <div class="card-body">
+          <h3>Сад и цветник</h3>
+          <p>Выращиваю цветы, люблю копаться в огороде. Результат здесь виден не в отчётном периоде, а в том, что распустилось за окном.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="images/photo_2026-09-16_20-34-22%20(2).jpg" alt="Ларс, джек-рассел-терьер" loading="lazy" style="object-position: center 40%;">
+        <div class="card-body">
+          <h3>Воспитание Ларса</h3>
+          <p>У меня джек-рассел-терьер по имени Ларс. Забота о нём — тоже своего рода проект: дисциплина, внимание и немного упрямства с обеих сторон.</p>
+        </div>
+      </div>
+      <div class="card plain">
+        <div class="card-body">
+          <h3>Домашняя выпечка</h3>
+          <p>Когда появляется свободное время, пеку что-нибудь вкусное — небольшой, но важный проект «для настроения» и для тех, кого люблю.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="resources">Упорство и умение доводить цели до конца, внимательность к деталям, честность и надёжность — на этом строится всё, за что я берусь. А ещё — способность совмещать строгий учёт на работе с заботой о доме, саде и собаке, и находить в этом баланс.</p>
+  </section>
+
+  <section class="facts">
+    <span class="eyebrow">Интересные факты</span>
+    <h2 class="title">Немного обо мне</h2>
+    <ul class="facts-list">
+      <li>Прямолинейная — говорю как есть, без экивоков. Не люблю ложь и сразу её чувствую.</li>
+      <li>Упорная: если ставлю себе цель, иду к ней до конца, даже если путь не самый простой.</li>
+      <li>Люблю порядок во всём — не только в бухгалтерских отчётах, но и дома, и в саду.</li>
+      <li>В свободное время пеку что-нибудь вкусное — это мой способ отдохнуть и позаботиться о близких.</li>
+      <li>Несмотря на серьёзную профессию бухгалтера, дома я — увлечённый садовод: люблю цветы и с удовольствием копаюсь в огороде.</li>
+      <li>У меня джек-рассел-терьер по имени Ларс — и, кажется, я люблю животных больше, чем готова признать в рабочее время.</li>
+      <li>Больше всего в людях ценю искренность, надёжность и ответственность — и всегда обращаю внимание, держит ли человек слово.</li>
+    </ul>
+    <div class="howto">
+      <strong>Как со мной работать:</strong> приходите с делом и говорите прямо — я ценю честность и не люблю недосказанности. Дайте мне ответственность и ясную цель — я доведу её до результата. А ещё для меня важна забота о близких и уют в доме, так что время с семьёй для меня не менее приоритетно, чем работа.
+    </div>
+  </section>
+
+</main>
+
+<div class="finale">
+  <blockquote>
+    «Забота о близких, честность и умение довести дело до конца — вот с чего начинается всё остальное»
+    <cite>Лена Журун</cite>
+  </blockquote>
+</div>
+
+<footer>
+  <p class="credits">
+    <strong>Фото:</strong> личные снимки Лены Журун (в папке images/ нет файла CREDITS.md — сторонних изображений на странице нет, авторство указывать не требуется).
+  </p>
+</footer>
+
+</body>
+</html>
